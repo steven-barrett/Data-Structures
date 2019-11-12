@@ -8,16 +8,19 @@ class Stack:
         self.size = 0
         # Why is our DLL a good choice to store our elements?
         self.storage = Doubly_Linked_List()
-        self.storage.__init__()
+        # self.storage.__init__()
 
     def push(self, value):
+        self.size += 1
         self.storage.add_to_head(value)
 
     def pop(self):
-        self.storage.remove_from_head()
+        if(self.size > 0):
+            self.size -= 1
+            return self.storage.remove_from_head()
 
     def len(self):
-        self.storage.length
+        return self.storage.__len__()
 
 
 #  follows the LIFO rule of stacks
