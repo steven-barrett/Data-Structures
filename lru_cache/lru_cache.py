@@ -1,5 +1,14 @@
 import collections
 
+"""
+Decided to put in some notes as to why I used an ordered dictionary instead of doubly linked list:
+
+ The implementation is much cleaner as the order is handled by the OrderDict now. For each get and set operation,
+ we first pop the item, then put back to update its timestamp. The element in the head of sequence is the least used item, 
+ so it's the candidate to expire if the maximum capacity is reached. This is where I did my research on ordereddict...
+ https://www.geeksforgeeks.org/ordereddict-in-python/
+"""
+
 
 class LRUCache:
     """
@@ -12,6 +21,7 @@ class LRUCache:
 
     def __init__(self, limit=10):
         self.capacity = limit
+        self.size = 0
         self.cache = collections.OrderedDict()
 
     """
@@ -43,10 +53,12 @@ class LRUCache:
 
     def set(self, key, value):
         try:
+            self.size += 1
             self.cache.pop(key)
         except KeyError:
             if len(self.cache) >= self.capacity:
                 self.cache.popitem(last=False)
+                self.size = self.capacity
         self.cache[key] = value
 
     # Test if adding a new one acts like it should (removing the least recently used)
@@ -73,3 +85,4 @@ cache.set('11', 110)
 
 # Display all the values to see the results
 print(cache.displayContents())
+print('Total items in cache: ', cache.size)
