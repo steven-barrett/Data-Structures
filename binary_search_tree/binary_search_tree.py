@@ -61,42 +61,77 @@ class BinarySearchTree:
 
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
-
     def in_order_print(self, node):
-        pass
+        if node:
+            self.in_order_print(node.left)
+            print(node.value)
+            self.in_order_print(node.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self, node):
-        pass
+        bft = Queue()
+        bft.enqueue(node)
+        while bft:
+            item = bft.dequeue()
+            if (not item):
+                break
+            print(item.value)
+            if (item.left):
+                bft.enqueue(item.left)
+            if (item.right):
+                bft.enqueue(item.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
-        pass
+        dft = Stack()
+        dft.push(node)
+        while dft:
+            item = dft.pop()
+            if (not item):
+                break
+            print(item.value)
+            if (item.left):
+                dft.push(item.left)
+            if (item.right):
+                dft.push(item.right)
 
     # STRETCH Goals -------------------------
     # Note: Research may be required
 
     # Print In-order recursive DFT
     def pre_order_dft(self, node):
-        pass
+        if node:
+            print(node.value)
+            self.pre_order_dft(node.left)
+            self.pre_order_dft(node.right)
 
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
-        pass
+        if node:
+            self.post_order_dft(node.left)
+            self.post_order_dft(node.right)
+            print(node.value)
 
 
 def cb(value):
     print(value)
 
 
-BST = BinarySearchTree(5)
+BST = BinarySearchTree(20)
+BST.insert(50)
+BST.insert(11)
+BST.insert(42)
+BST.insert(9)
+BST.insert(16)
 BST.insert(10)
 BST.insert(15)
 BST.insert(4)
 BST.insert(3)
 BST.insert(0)
+BST.bft_print(BST)
+
 # print(BST.get_max())
 # print(BST.contains(6))
-print(BST.for_each(cb))
+# print(BST.for_each(cb))
