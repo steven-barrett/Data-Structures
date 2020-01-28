@@ -9,7 +9,6 @@ Decided to put in some notes as to why I used an ordered dictionary instead of d
  https://www.geeksforgeeks.org/ordereddict-in-python/
 """
 
-
 class LRUCache:
     """
     Our LRUCache class keeps track of the max number of nodes it
@@ -32,6 +31,7 @@ class LRUCache:
     key-value pair doesn't exist in the cache.
     """
 
+
     def get(self, key):
         try:
             value = self.cache.pop(key)
@@ -50,6 +50,7 @@ class LRUCache:
     want to overwrite the old value associated with the key with
     the newly-specified value.
     """
+
 
     def set(self, key, value):
         try:
