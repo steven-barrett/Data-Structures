@@ -25,7 +25,6 @@ class Queue:
         return self.storage.length
 
 
-
 test = Queue()
 test.enqueue(5)
 test.enqueue(6)
