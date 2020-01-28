@@ -132,6 +132,7 @@ class Doubly_Linked_List:
         else:
             node.delete()
 
+
     """Returns the highest value currently in the list"""
 
     def get_max(self):
