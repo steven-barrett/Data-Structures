@@ -1,12 +1,12 @@
 import unittest
 from doubly_linked_list import ListNode
-from doubly_linked_list import DoublyLinkedList
+from doubly_linked_list import Doubly_Linked_List
 
 
 class DoublyLinkedListTests(unittest.TestCase):
     def setUp(self):
         self.node = ListNode(1)
-        self.dll = DoublyLinkedList(self.node)
+        self.dll = Doubly_Linked_List(self.node)
 
     def test_list_remove_from_tail(self):
         self.dll.remove_from_tail()
