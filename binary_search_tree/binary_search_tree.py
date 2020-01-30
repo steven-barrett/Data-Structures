@@ -24,6 +24,7 @@ class BinarySearchTree:
             else:
                 self.right.insert(value)
 
+
         # Return True if the tree contains the value
         # False if it does not
     def contains(self, target):
@@ -46,6 +47,7 @@ class BinarySearchTree:
         if not self.right:
             return self.value
         return self.right.get_max()
+
 
     # Call the function `cb` on the value of each node
     # You may use a recursive or iterative approach
@@ -96,6 +98,7 @@ class BinarySearchTree:
                 dft.push(item.left)
             if (item.right):
                 dft.push(item.right)
+
 
     # STRETCH Goals -------------------------
     # Note: Research may be required

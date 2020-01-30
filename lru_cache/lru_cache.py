@@ -31,7 +31,6 @@ class LRUCache:
     key-value pair doesn't exist in the cache.
     """
 
-
     def get(self, key):
         try:
             value = self.cache.pop(key)
@@ -50,7 +49,6 @@ class LRUCache:
     want to overwrite the old value associated with the key with
     the newly-specified value.
     """
-
 
     def set(self, key, value):
         try:
